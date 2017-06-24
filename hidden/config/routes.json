@@ -1,6 +1,8 @@
 {
 	"routes" : {
 		"*" : "Home/Index/Main",
-		"404" : "Home/NoRoute/Main"
+		"404" : "Home/NoRoute/Main",
+		"post/:id" : "Home/Posts/Post",
+		"create/post" : "Home/Posts/CreatePost"
 	}
 }
