@@ -49,6 +49,28 @@ class Post {
 
   }
 
+  public function Update( $title, $category, $content, $basename ){
+
+    if( $this->ID() !== null ){
+
+      $this->title( $title );
+      $this->category( $category );
+      $this->content( $content );
+      $this->basename( $basename );
+
+      $params = array(
+        'title' => $title,
+        'category' => $category,
+        'content' => $content,
+        'basename' => $basename
+      );
+
+      $update_query = DB::Get('blog')->Update( 'posts', $params, "id = :id", array('id' => $this->ID()) );
+
+    }
+
+  }
+
   private function Populate( $post_query ){
 
     $this->id( $post_query['id'] );

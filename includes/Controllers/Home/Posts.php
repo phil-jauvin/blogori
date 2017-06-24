@@ -16,4 +16,9 @@ class Posts {
     $post->Create( $_POST['title'], $_POST['category'], $_POST['content'], $_POST['basename'] );
   }
 
+  public function UpdatePost( $id ){
+    $post = new Post( $id );
+    $post->Update( $_POST['title'], $_POST['category'], $_POST['content'], $_POST['basename'] );
+  }
+
 }
