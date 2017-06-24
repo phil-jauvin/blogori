@@ -14,7 +14,17 @@ class DB extends \Origin\Utilities\Types\Singleton {
 	private $statement;
 	private $connection;
 	private $connection_parameters;
-	
+
+	/*
+	* Execute Raw SQL query
+	*/
+	public function RawQuery( $sql, $parameters ){
+		if($this->Execute($sql, $parameters)){
+			return true;
+		}
+		return false;
+	}
+
 	/*
 	* Select back full result set as an array.
 	*/
@@ -65,11 +75,11 @@ class DB extends \Origin\Utilities\Types\Singleton {
 			$binds[sprintf(':parameter1%04d', $total_parameters)] = $value;
 			$total_parameters++;
 		}
-		
+
 		$query = sprintf(self::$insert_template, $table, implode(', ', array_keys($parameters)), implode(', ', array_keys($binds)));
 		return $this->Execute($query, $binds);
 	}
-	
+
 	public function LastID(){
 		return $this->connection->lastInsertId();
 	}
@@ -85,22 +95,22 @@ class DB extends \Origin\Utilities\Types\Singleton {
 			if($value instanceof \DateTime){
 				$value = $value->format('Y-m-d H:i:s');
 			}
-			
+
 			$bind_key = sprintf(':parameter1%04d', $total_parameters);
 			$sql .= (($sql === null) ? sprintf(self::$set_sql, $key, $bind_key) : ', '.sprintf(self::$set_sql, $key, $bind_key));
 			$binds[$bind_key] = $value;
 			$total_parameters++;
 		}
-		
+
 		$query = sprintf(self::$update_template, $table, $sql);
 		if($where !== null){
 			$query .= sprintf(self::$update_where, $where);
-			
+
 			if($where_parameters !== null){
 				$binds = array_merge($binds, $where_parameters);
 			}
 		}
-		
+
 		return $this->Execute($query, $binds);
 	}
 
@@ -128,12 +138,12 @@ class DB extends \Origin\Utilities\Types\Singleton {
 			$this->connection_parameters->offsetGet('database'),
 			$this->connection_parameters->offsetGet('port')
 		);
-		
+
 		$options = array(
 			PDO::ATTR_PERSISTENT => true,
 			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
 		);
-		
+
 		try {
 			$this->connection = new PDO($dsn, $this->connection_parameters->offsetGet('username'), $this->connection_parameters->offsetGet('password'), $options);
 			return true;
@@ -188,7 +198,7 @@ UPDATE
 SET
 	%s
 SQL;
-	
+
 	private static $insert_template = <<<'SQL'
 INSERT INTO %s (
 	%s

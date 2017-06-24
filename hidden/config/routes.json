@@ -4,6 +4,7 @@
 		"404" : "Home/NoRoute/Main",
 		"post/:id" : "Home/Posts/Post",
 		"create/post" : "Home/Posts/CreatePost",
-		"update/post/:id" : "Home/Posts/UpdatePost"
+		"update/post/:id" : "Home/Posts/UpdatePost",
+		"delete/post/:id" : "Home/Posts/DeletePost"
 	}
 }

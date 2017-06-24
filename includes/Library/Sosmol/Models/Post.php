@@ -71,6 +71,19 @@ class Post {
 
   }
 
+  public function Delete(){
+
+      if( $this->ID() !== null ){
+
+        $delete_query = DB::Get('blog')->RawQuery(
+          "DELETE FROM posts where id = :id",
+          array( 'id' => $this->ID() )
+        );
+
+      }
+
+  }
+
   private function Populate( $post_query ){
 
     $this->id( $post_query['id'] );
