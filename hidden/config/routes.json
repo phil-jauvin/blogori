@@ -2,10 +2,10 @@
 	"routes" : {
 		"*" : "Home/Index/Main",
 		"404" : "Home/NoRoute/Main",
-		"post/:id" : "Home/Posts/Post",
-		"category/:name" : "Home/Categories/Category",
-		"create/post" : "Home/Posts/CreatePost",
-		"update/post/:id" : "Home/Posts/UpdatePost",
-		"delete/post/:id" : "Home/Posts/DeletePost"
+		"post/:id" : "App/Posts/Post",
+		"category/:name" : "App/Categories/Category",
+		"create/post" : "App/Posts/CreatePost",
+		"update/post/:id" : "App/Posts/UpdatePost",
+		"delete/post/:id" : "App/Posts/DeletePost"
 	}
 }
