@@ -73,14 +73,15 @@ class Post {
 
   public function Delete(){
 
-      if( $this->ID() !== null ){
+    if( $this->ID() !== null ){
 
-        $delete_query = DB::Get('blog')->RawQuery(
-          "DELETE FROM posts where id = :id",
-          array( 'id' => $this->ID() )
-        );
+      // RawQuery is like Query except it won't attempt to fetch results
+      $delete_query = DB::Get('blog')->RawQuery(
+        "DELETE FROM posts where id = :id",
+        array( 'id' => $this->ID() )
+      );
 
-      }
+    }
 
   }
 

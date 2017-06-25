@@ -3,6 +3,7 @@
 		"*" : "Home/Index/Main",
 		"404" : "Home/NoRoute/Main",
 		"post/:id" : "Home/Posts/Post",
+		"category/:name" : "Home/Categories/Category",
 		"create/post" : "Home/Posts/CreatePost",
 		"update/post/:id" : "Home/Posts/UpdatePost",
 		"delete/post/:id" : "Home/Posts/DeletePost"
