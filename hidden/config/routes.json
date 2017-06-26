@@ -5,9 +5,7 @@
 		"dashboard" : "App/Admin/Dashboard",
 		"dashboard/edit/post" : "App/Admin/EditPost",
 		"post/:id" : "App/Posts/Post",
-		"category/:name" : "App/Categories/Category",
-		"create/post" : "App/Posts/CreatePost",
-		"update/post/:id" : "App/Posts/UpdatePost",
-		"delete/post/:id" : "App/Posts/DeletePost"
+		"post" : "App/Posts/CreatePost",
+		"category/:name" : "App/Categories/Category"
 	}
 }
