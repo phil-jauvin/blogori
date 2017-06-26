@@ -2,6 +2,8 @@
 	"routes" : {
 		"*" : "Home/Index/Main",
 		"404" : "Home/NoRoute/Main",
+		"dashboard" : "App/Admin/Dashboard",
+		"dashboard/edit/post" : "App/Admin/EditPost",
 		"post/:id" : "App/Posts/Post",
 		"category/:name" : "App/Categories/Category",
 		"create/post" : "App/Posts/CreatePost",
