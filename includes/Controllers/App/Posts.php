@@ -13,26 +13,35 @@ class Posts {
 			var_dump( $post );
 		}
 
-		if( $_SERVER['REQUEST_METHOD'] === 'PUT' ){
+		else if( $_SERVER['REQUEST_METHOD'] === 'PUT' ){
 			$request = file_get_contents('php://input');
 			parse_str($request, $params);
 			$post = new Post( $id );
 			$post->Update( $params['title'], $params['category'], $params['content'], $params['basename'] );
 		}
 
-		if( $_SERVER['REQUEST_METHOD'] === 'DELETE' ){
+		else if( $_SERVER['REQUEST_METHOD'] === 'DELETE' ){
 			$post = new Post( $id );
 			$post->Delete();
+		}
+
+		else{
+			http_response_code(405);
 		}
 
 	}
 
 	public function CreatePost(){
+		
 		if( $_SERVER['REQUEST_METHOD'] === 'POST' ){
 			$post = new Post();
 			$post->Create( $_POST['title'], $_POST['category'], $_POST['content'], $_POST['basename'] );
 		}
-		//$post->Create( 'test post', 'uncategorised', 'test content', 'test-post' );
+
+		else{
+			http_response_code(405);
+		}
+
 	}
 
 }
