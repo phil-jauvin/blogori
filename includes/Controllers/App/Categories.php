@@ -9,7 +9,7 @@ class Categories {
 
 		if( $_SERVER['REQUEST_METHOD'] === 'GET' ){
 			$category = new Category( $name );
-			var_dump( $category->posts() );
+			echo $category->toJson();
 		}
 
 		else{

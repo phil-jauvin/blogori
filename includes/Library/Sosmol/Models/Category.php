@@ -3,11 +3,12 @@ namespace Sosmol\Models;
 
 use \Origin\Utilities\Bucket\Bucket;
 use \Origin\Utilities\Bucket\Common;
+use \Origin\Utilities\Bucket\ToJson;
 use \Origin\DB\DB;
 
 class Category {
 
-  use Bucket, Common {
+  use Bucket, Common, ToJson {
     String as name;
     Number as count;
     Hash as posts;

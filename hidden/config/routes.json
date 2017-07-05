@@ -3,6 +3,7 @@
 		"*" : "Home/Index/Main",
 		"about" : "Home/Index/About",
 		"404" : "Home/NoRoute/Main",
+		"collage" : "App/Posts/Collage",
 		"dashboard" : "View/Admin/Dashboard",
 		"dashboard/edit/post" : "View/Admin/EditPost",
 		"post/:id" : "App/Posts/Post",

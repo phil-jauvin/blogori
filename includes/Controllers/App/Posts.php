@@ -3,6 +3,7 @@ namespace Controllers\App;
 
 use \Origin\Utilities\Layout;
 use \Sosmol\Models\Post;
+use \Sosmol\Models\Collage;
 
 class Posts {
 
@@ -10,7 +11,7 @@ class Posts {
 
 		if( $_SERVER['REQUEST_METHOD'] === 'GET' ){
 			$post = new Post( $id );
-			var_dump( $post );
+			echo $post->ToJson();
 		}
 
 		else if( $_SERVER['REQUEST_METHOD'] === 'PUT' ){
@@ -32,7 +33,7 @@ class Posts {
 	}
 
 	public function CreatePost(){
-		
+
 		if( $_SERVER['REQUEST_METHOD'] === 'POST' ){
 			$post = new Post();
 			$post->Create( $_POST['title'], $_POST['category'], $_POST['content'], $_POST['basename'] );
@@ -41,6 +42,13 @@ class Posts {
 		else{
 			http_response_code(405);
 		}
+
+	}
+
+	public function Collage(){
+
+		$collage = new Collage(1);
+		echo $collage->ToJson();
 
 	}
 
