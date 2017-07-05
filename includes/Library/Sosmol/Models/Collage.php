@@ -3,12 +3,11 @@ namespace Sosmol\Models;
 
 use \Origin\Utilities\Bucket\Bucket;
 use \Origin\Utilities\Bucket\Common;
-use \Origin\Utilities\Bucket\ToJson;
 use \Origin\DB\DB;
 
 class Collage {
 
-  use Bucket, Common, ToJson {
+  use Bucket, Common {
     Number as page;
     Hash as posts;
   }

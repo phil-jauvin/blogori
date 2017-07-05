@@ -3,12 +3,11 @@ namespace Sosmol\Models;
 
 use \Origin\Utilities\Bucket\Bucket;
 use \Origin\Utilities\Bucket\Common;
-use \Origin\Utilities\Bucket\ToJson;
 use \Origin\DB\DB;
 
 class Post {
 
-  use Bucket, Common, ToJson {
+  use Bucket, Common {
     Number as id;
     String as title;
     String as basename;

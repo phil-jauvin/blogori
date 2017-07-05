@@ -47,8 +47,15 @@ class Posts {
 
 	public function Collage(){
 
-		$collage = new Collage(1);
-		echo $collage->ToJson();
+		// TODO: Collages are pagination objects, make pagination
+		if( $_SERVER['REQUEST_METHOD'] === 'GET' ){
+			$collage = new Collage(1);
+			echo $collage->ToJson();
+		}
+
+		else{
+			http_response_code(405);
+		}
 
 	}
 

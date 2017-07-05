@@ -2,6 +2,9 @@
 namespace Origin\Utilities\Bucket;
 
 trait Bucket {
+
+	use ToArray, ToJson;
+
 	private $things = array();
 	private function Bucket($key = null, $value = null){
 		if($key === null){
