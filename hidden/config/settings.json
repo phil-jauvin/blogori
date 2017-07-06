@@ -5,6 +5,7 @@
 	"origin" : {
 		"max_route_attempts" : "3",
 		"log_level" : "2",
-		"generic_log_file" : "log.log"
+		"generic_log_file" : "log.log",
+		"template_dir" : "templates/"
 	}
 }

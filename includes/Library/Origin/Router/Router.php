@@ -42,7 +42,7 @@ class Router extends \Origin\Utilities\Types\Singleton {
 		}
 
 		return $this->Route('mainview');
-    
+
   }
 
   /*
@@ -63,7 +63,6 @@ class Router extends \Origin\Utilities\Types\Singleton {
     if($this->AllowAttempt()){
       if($this->GetFile($path)){
         $class = $this->GetClass($path);
-				Layout::Get()->Assign('route', $route);
 				if(call_user_func_array(array((new $class), $this->GetMethod($path)), $variables) === false){
           throw new Exception('File exists, but class is undefined for route: '.$this->GetClass($path).'->'.$this->GetMethod($path));
         }
@@ -71,7 +70,7 @@ class Router extends \Origin\Utilities\Types\Singleton {
         return true;
       }
 
-      return $this->Route('404');
+      return $this->Route('mainview');
     }
   }
 
