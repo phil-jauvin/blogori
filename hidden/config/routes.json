@@ -1,10 +1,7 @@
 {
 	"routes" : {
 		"mainview" : "Home/Index/Main",
-		"about" : "Home/Index/About",
 		"collage" : "App/Posts/Collage",
-		"dashboard" : "View/Admin/Dashboard",
-		"dashboard/edit/post" : "View/Admin/EditPost",
 		"post/:id" : "App/Posts/Post",
 		"post" : "App/Posts/CreatePost",
 		"category/:name" : "App/Categories/Category"

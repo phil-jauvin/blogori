@@ -25,9 +25,6 @@ class Router extends \Origin\Utilities\Types\Singleton {
   */
   public function Route($route = null){
     $route = ($route === null) ? trim(strtok($_SERVER["REQUEST_URI"],'?'), '/') : $route;
-		if(empty($route)){
-			return $this->Route('*');
-		}
 
     // Exact match.
     if($this->routes->offsetExists($route)){
@@ -45,6 +42,7 @@ class Router extends \Origin\Utilities\Types\Singleton {
 		}
 
 		return $this->Route('mainview');
+    
   }
 
   /*
