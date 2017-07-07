@@ -1,7 +1,6 @@
 <?php
 namespace Controllers\App;
 
-use \Origin\Utilities\Layout;
 use \Sosmol\Models\Category;
 
 class Categories {

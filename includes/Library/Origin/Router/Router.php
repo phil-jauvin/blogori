@@ -1,7 +1,6 @@
 <?php
 namespace Origin\Router;
 
-use \Origin\Utilities\Layout;
 use \Origin\Utilities\Settings;
 use \Origin\Utilities\Types\Exception;
 
