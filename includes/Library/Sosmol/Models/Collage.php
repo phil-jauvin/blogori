@@ -17,14 +17,14 @@ class Collage {
     $this->page( $page );
 
     if( $page !== 1 ){
-      $offset = $page-1 * $amount;
+      $offset = ($page-1) * $amount;
     }
     else{
       $offset = 0;
     }
 
     $post_query =  DB::Get('blog')->Query(
-      "SELECT * FROM posts LIMIT :amount OFFSET :startrow",
+      "SELECT * FROM posts ORDER BY id DESC LIMIT :amount OFFSET :startrow",
       array( 'amount' => $amount, 'startrow' => $offset )
     );
 

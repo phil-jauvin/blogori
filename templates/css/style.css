@@ -76,12 +76,13 @@
   font-size: 22px;
 }
 
-.content-view section {
+.content-view article {
   padding-bottom: 25px;
   margin-bottom: 25px;
   border-bottom: 1px solid #DDC2D0;
 }
 
-.content-view .fa {
+.fa {
   margin: 15px 0px 0px calc(50% - 17px);
 }
+

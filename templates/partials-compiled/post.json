@@ -1,0 +1,1 @@
+{"template":"<article>\r\n    <header><%= post.get(\"title\") %></header>\r\n    <p><%= post.get(\"id\") %></p>\r\n    <p><%= post.get(\"content\") %></p>\r\n    <i class=\"fa fa-coffee\" aria-hidden=\"true\"></i>\r\n</article>"}

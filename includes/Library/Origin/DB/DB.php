@@ -153,6 +153,13 @@ class DB extends \Origin\Utilities\Types\Singleton {
 		}
 	}
 
+    /*
+    * Connection Getter
+    */
+    public function GetConnection(){
+        return $this->connection;
+    }
+
 	/*
 	* Execute some SQL.
 	*/

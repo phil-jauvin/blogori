@@ -1,7 +1,7 @@
 {
 	"routes" : {
 		"mainview" : "Home/Index/Main",
-		"collage" : "App/Posts/Collage",
+		"collage/:page" : "App/Posts/Collage",
 		"post/:id" : "App/Posts/Post",
 		"post" : "App/Posts/CreatePost",
 		"category/:name" : "App/Categories/Category"

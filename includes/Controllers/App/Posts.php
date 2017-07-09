@@ -8,6 +8,8 @@ class Posts {
 
 	public function Post( $id ){
 
+	    // TODO: secure endpoints
+
 		if( $_SERVER['REQUEST_METHOD'] === 'GET' ){
 			$post = new Post( $id );
 			echo $post->ToJson();
@@ -44,11 +46,11 @@ class Posts {
 
 	}
 
-	public function Collage(){
+	public function Collage( $page ){
 
 		// TODO: Collages are pagination objects, make pagination
 		if( $_SERVER['REQUEST_METHOD'] === 'GET' ){
-			$collage = new Collage(1);
+			$collage = new Collage($page);
 			echo $collage->ToJson();
 		}
 

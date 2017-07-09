@@ -6,5 +6,6 @@
 			"url": "https://github.com/BookOfOrigin/Ori"
 	}],
 	"require": {
+		"phpauth/phpauth": "^1.1"
 	}
 }
