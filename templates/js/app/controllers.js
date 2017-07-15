@@ -13,13 +13,10 @@ function getPage( page ){
             collection: page1
         } );
 
-        Backbone.history.firstLoad = false;
-
     });
 
 }
 
 function aboutPage(){
     var aboutview = new AboutView();
-    Backbone.history.firstLoad = false;
 }

@@ -4,6 +4,10 @@
 		"collage/:page" : "App/Posts/Collage",
 		"post/:id" : "App/Posts/Post",
 		"post" : "App/Posts/CreatePost",
-		"category/:name" : "App/Categories/Category"
+		"category/:name" : "App/Categories/Category",
+		"status" : "App/Users/IsLoggedIn",
+		"login": "App/Users/Login",
+		"logout": "App/Users/Logout",
+		"user": "App/Users/Register"
 	}
 }

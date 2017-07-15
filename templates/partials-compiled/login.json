@@ -1,0 +1,1 @@
+{"template":"<form>\r\n    <input id=\"username\" placeholder=\"Username\">\r\n    <input type=\"password\" id=\"password\" placeholder=\"Password\">\r\n    <button class=\"login-button\">Log me in</button>\r\n</form>\r\n\r\n<span class=\"login-blurb\">Or <a href=\"#\">register</a> instead</span>\r\n\r\n"}

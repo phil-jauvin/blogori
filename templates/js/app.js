@@ -2,7 +2,9 @@ var AppRouter = Backbone.Router.extend({
     routes: {
         "page/:page": "getPage",
         "about": "aboutPage",
-        "home" : "getPage"
+        "home" : "getPage",
+        "login": "loginPage",
+        "admin": "adminPage"
     }
 });
 
@@ -18,6 +20,20 @@ router.on( 'route:getPage', function(page){
 router.on( 'route:aboutPage', function(){
     aboutPage();
 } );
+
+router.on( 'route:loginPage', function(){
+
+    var loginview = new LoginView();
+    Backbone.history.firstLoad = false;
+
+} );
+
+router.on( 'route:adminPage', function(){
+
+    var adminview = new AdminView();
+
+} );
+
 
 Backbone.history.start();
 

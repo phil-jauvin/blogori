@@ -23,6 +23,11 @@ var PageView = Backbone.View.extend( {
             partials.push( new Partial( "post" ) );
         } );
 
+        if( that.firstload ){
+            var footer = new Partial( "footer" );
+            partials.push( footer );
+        }
+
         // When all partials are done fetching call callback function
         var complete = _.invoke( partials, "fetch" );
         $.when.apply($, complete).done( function(){
@@ -41,6 +46,7 @@ var PageView = Backbone.View.extend( {
                 template = template( {post: that.collection.models[index]} );
                 $("main").append( template );
             } );
+
 
         } );
 
