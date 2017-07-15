@@ -1,0 +1,1 @@
+{"template":"<main class=\"admin-menu\">\r\n\r\n    <input id=\"title\" placeholder=\"Title\" class=\"\">\r\n    <input id=\"category\" placeholder=\"Category\">\r\n    <button id=\"postit\">Post</button>\r\n\r\n    <textarea id=\"content\">\r\n    </textarea>\r\n\r\n</main>"}

@@ -4,7 +4,8 @@ var AppRouter = Backbone.Router.extend({
         "about": "aboutPage",
         "home" : "getPage",
         "login": "loginPage",
-        "admin": "adminPage"
+        "admin": "adminPage",
+        "addpost": "addpostPage"
     }
 });
 
@@ -31,6 +32,12 @@ router.on( 'route:loginPage', function(){
 router.on( 'route:adminPage', function(){
 
     var adminview = new AdminView();
+
+} );
+
+router.on( 'route:addpostPage', function(){
+
+    var addpostview = new EditPostView();
 
 } );
 

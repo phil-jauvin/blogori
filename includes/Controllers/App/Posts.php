@@ -37,8 +37,11 @@ class Posts {
 	public function CreatePost(){
 
 		if( $_SERVER['REQUEST_METHOD'] === 'POST' ){
+		    $basename = $_POST['title'];
+		    $basename = strtolower( $basename );
+		    $basename = str_replace( " ", "-", $basename );
 			$post = new Post();
-			$post->Create( $_POST['title'], $_POST['category'], $_POST['content'], $_POST['basename'] );
+			$post->Create( $_POST['title'], $_POST['category'], $_POST['content'], $basename );
 		}
 
 		else{
