@@ -1,4 +1,4 @@
-var AdminView = Backbone.View.extend( {
+var AddPostView = Backbone.View.extend( {
 
     initialize: function(){
         $('html, body').animate({ scrollTop: 0 }, 'fast'); // Can't decide whether I like the animation or not
@@ -17,8 +17,8 @@ var AdminView = Backbone.View.extend( {
             partials.push( header );
         }
 
-        var admin = new Partial( "admin" );
-        partials.push( admin );
+        var addpost = new Partial( "addpost" );
+        partials.push( addpost );
 
         // When all partials are done fetching call callback function
         var complete = _.invoke( partials, "fetch" );
@@ -32,8 +32,23 @@ var AdminView = Backbone.View.extend( {
                 $( "main" ).empty();
             }
 
-            template = _.template( admin.get("template") );
+            template = _.template( addpost.get("template") );
             $("main").append( template );
+
+            $( "#postit" ).click( function(event){
+                event.preventDefault();
+                $.post( "/post",
+                    {
+                        title: $("#title").val(),
+                        category: $("#category").val(),
+                        content: $("#content").val(),
+                    },
+                    function(data){
+                        console.log( "success !" );
+                    }, "json" );
+            } );
+
+
 
         } );
 

@@ -32,12 +32,14 @@ router.on( 'route:loginPage', function(){
 router.on( 'route:adminPage', function(){
 
     var adminview = new AdminView();
+    Backbone.history.firstLoad = false;
 
 } );
 
 router.on( 'route:addpostPage', function(){
 
-    var addpostview = new EditPostView();
+    var addpostview = new AddPostView();
+    Backbone.history.firstLoad = false;
 
 } );
 

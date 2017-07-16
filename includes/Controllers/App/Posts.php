@@ -8,18 +8,25 @@ class Posts {
 
 	public function Post( $id ){
 
-	    // TODO: secure endpoints
-
 		if( $_SERVER['REQUEST_METHOD'] === 'GET' ){
 			$post = new Post( $id );
 			echo $post->ToJson();
 		}
 
 		else if( $_SERVER['REQUEST_METHOD'] === 'PUT' ){
+
+		    // TODO: figure out to parse PUT requests securely
 			$request = file_get_contents('php://input');
 			parse_str($request, $params);
 			$post = new Post( $id );
+
+			// Prevent stored XSS
+			foreach( $params as $key => $value ){
+			    $params[$key] = htmlspecialchars( $value );
+            }
+
 			$post->Update( $params['title'], $params['category'], $params['content'], $params['basename'] );
+
 		}
 
 		else if( $_SERVER['REQUEST_METHOD'] === 'DELETE' ){
@@ -37,6 +44,12 @@ class Posts {
 	public function CreatePost(){
 
 		if( $_SERVER['REQUEST_METHOD'] === 'POST' ){
+
+            // Prevent stored XSS
+            foreach( $_POST as $key => $value ){
+                $_POST[$key] = htmlspecialchars( $value );
+            }
+
 		    $basename = $_POST['title'];
 		    $basename = strtolower( $basename );
 		    $basename = str_replace( " ", "-", $basename );

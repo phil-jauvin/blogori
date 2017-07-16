@@ -173,6 +173,11 @@ form input:focus{
 
 }
 
+.admin-box:hover {
+  background-color: #607E7E;
+  color: #D3B7A1;
+}
+
 .admin-box i, .admin-box span {
   width: 168px;
   margin-left: calc( 50% - 84px );

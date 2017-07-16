@@ -1,1 +1,1 @@
-{"template":"<main class=\"admin-menu\">\r\n\r\n    <div class=\"admin-box\">\r\n        <i class=\"fa fa-5x fa-pencil-square-o\" aria-hidden=\"true\"></i>\r\n        <span>New post</span>\r\n    </div>\r\n\r\n</main>"}
+{"template":"<div class=\"admin-box\">\r\n    <i class=\"fa fa-5x fa-pencil-square-o\" aria-hidden=\"true\"></i>\r\n    <span>New post</span>\r\n</div>\r\n"}
