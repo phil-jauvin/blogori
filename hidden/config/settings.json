@@ -3,6 +3,7 @@
 		"title" : "So Smol"
 	},
 	"origin" : {
+		"sitehost": "cms.phil.dev",
 		"max_route_attempts" : "3",
 		"log_level" : "2",
 		"generic_log_file" : "log.log",

@@ -3,7 +3,7 @@
 	"license": "MIT",
 	"repositories": [{
 			"type": "vcs",
-			"url": "https://github.com/BookOfOrigin/Ori"
+			"url": "https://github.com/phil-jauvin"
 	}],
 	"require": {
 		"phpauth/phpauth": "^1.1"

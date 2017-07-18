@@ -44,7 +44,7 @@ var AddPostView = Backbone.View.extend( {
                         content: $("#content").val(),
                     },
                     function(data){
-                        console.log( "success !" );
+                        console.log( data );
                     }, "json" );
             } );
 
