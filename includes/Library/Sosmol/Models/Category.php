@@ -5,13 +5,24 @@ use \Origin\Utilities\Bucket\Bucket;
 use \Origin\Utilities\Bucket\Common;
 use \Origin\DB\DB;
 
+/**
+ * Category model
+ * @package Sosmol\Models
+ */
+
 class Category {
 
+  // Class traits
   use Bucket, Common {
     String as name;
     Number as count;
     Hash as posts;
   }
+
+    /**
+     * Category mode constructor
+     * @param $name string name of the category we want to initialise
+     */
 
   public function __construct( $name ){
 
@@ -27,6 +38,11 @@ class Category {
     }
 
   }
+
+    /**
+     * Populate class traits
+     * @param $category_query array Array of category data from SQL query
+     */
 
   private function Populate( $category_query ){
 

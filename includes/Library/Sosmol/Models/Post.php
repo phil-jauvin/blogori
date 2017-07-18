@@ -5,8 +5,15 @@ use \Origin\Utilities\Bucket\Bucket;
 use \Origin\Utilities\Bucket\Common;
 use \Origin\DB\DB;
 
+/**
+ * Post model
+ * Perform CRUD operations on Posts
+ * @package Sosmol\Models
+ */
+
 class Post {
 
+  // Class traits
   use Bucket, Common {
     Number as id;
     String as title;
@@ -14,6 +21,12 @@ class Post {
     String as category;
     String as content;
   }
+
+    /**
+     * Post model constructor
+     * Will fetch post information if post ID is passed in
+     * @param mixed $post_id
+     */
 
   public function __construct( $post_id = null ){
 
@@ -33,7 +46,17 @@ class Post {
 
   }
 
+    /**
+     * Create a new post
+     * @param $title string Post title
+     * @param $category Post category
+     * @param $content Post content
+     * @param $basename Post basename
+     */
+
   public function Create( $title, $category, $content, $basename ){
+
+    //TODO: Move basename creation from Posts controller to this function
 
     // Check if ID is null so we're not creating a duplicate
     if( $this->id() === null ){
@@ -48,6 +71,14 @@ class Post {
     }
 
   }
+
+    /**
+     * Update an existing
+     * @param $title string New post title
+     * @param $category New post category
+     * @param $content New post content
+     * @param $basename New post basename
+     */
 
   public function Update( $title, $category, $content, $basename ){
 
@@ -71,7 +102,12 @@ class Post {
 
   }
 
-  public function Delete(){
+    /**
+     * Delete post
+     * @param $id int ID of the post to delete
+     */
+
+  public function Delete( $id ){
 
     if( $this->ID() !== null ){
 
@@ -85,6 +121,10 @@ class Post {
 
   }
 
+    /**
+     * Populate class traits
+     * @param $post_query array Array of post data from SQL query
+     */
   private function Populate( $post_query ){
 
     $this->id( $post_query['id'] );

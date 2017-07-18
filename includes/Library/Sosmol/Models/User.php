@@ -7,8 +7,15 @@ use \Origin\Utilities\Bucket\Common;
 use \Origin\DB\DB;
 use \PHPAuth\Config;
 
+/**
+ * User model
+ * Essentially a wrapper for \PHPAuth\Auth
+ * @package Sosmol\Models
+ */
+
 class User extends \PHPAuth\Auth {
 
+    // Class traits
     use Bucket, Common {
         Number as id;
         String as email;
@@ -16,14 +23,27 @@ class User extends \PHPAuth\Auth {
         String as dt;
     }
 
+    /**
+     * User model constructor
+     */
 
     public function __construct(){
 
+            // Fetch PDO connection
             $dbh = DB::Get('blog')->GetConnection();
+
+            // Create new PHPAuth config
             $config = new Config($dbh);
+
+            // Pass it to parent
             parent::__construct( $dbh, $config );
 
     }
+
+    /**
+     * Fetch information about a logged in user
+     * Will populate class traits if user information is found
+     */
 
     public function FetchActiveUser(){
 
@@ -38,6 +58,11 @@ class User extends \PHPAuth\Auth {
 
     }
 
+    /**
+     * Fetch information about a specific user
+     * @param $id int User ID
+     */
+
     public function FetchUserByID( $id ){
 
         $user_query = DB::Get('blog')->QueryFirstRow(
@@ -49,10 +74,20 @@ class User extends \PHPAuth\Auth {
 
     }
 
+    /**
+     * Log the current user out
+     * @return bool Logout is successful
+     */
+
     public function LogUserOut(){
         $hash = $this->getSessionHash();
         return $this->logout( $hash );
     }
+
+    /**
+     * Populate class traits
+     * @param $user_data array Array of user data from SQL query
+     */
 
     private function Populate( $user_data ){
         $this->id( $user_data['id'] );
