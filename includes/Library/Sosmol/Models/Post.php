@@ -104,10 +104,9 @@ class Post {
 
     /**
      * Delete post
-     * @param $id int ID of the post to delete
      */
 
-  public function Delete( $id ){
+  public function Delete(){
 
     if( $this->ID() !== null ){
 
