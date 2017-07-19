@@ -1,3 +1,5 @@
+
+// Route definitions
 var AppRouter = Backbone.Router.extend({
     routes: {
         "page/:page": "getPage",
@@ -9,10 +11,13 @@ var AppRouter = Backbone.Router.extend({
     }
 });
 
-
 var router = new AppRouter;
+
+// The user is loading the site from scratch, set to false once a view is rendered
+// Allows us to load partials instead of requesting header / sidebar every time
 Backbone.history.firstLoad = true;
 
+// Functions here are defined in controllers.js
 
 router.on( 'route:getPage', function(page){
     getPage( page );
@@ -23,26 +28,16 @@ router.on( 'route:aboutPage', function(){
 } );
 
 router.on( 'route:loginPage', function(){
-
-    var loginview = new LoginView();
-    Backbone.history.firstLoad = false;
-
+    loginPage();
 } );
 
 router.on( 'route:adminPage', function(){
-
-    var adminview = new AdminView();
-    Backbone.history.firstLoad = false;
-
+    adminPage();
 } );
 
 router.on( 'route:addpostPage', function(){
-
-    var addpostview = new AddPostView();
-    Backbone.history.firstLoad = false;
-
+    addpostPage();
 } );
-
 
 Backbone.history.start();
 
