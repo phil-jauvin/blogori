@@ -3,6 +3,7 @@ namespace Controllers\App;
 
 use \Sosmol\Models\Post;
 use \Sosmol\Models\Collage;
+use \Sosmol\Models\User;
 use \Sosmol\Helpers\UserInput;
 
 /**
@@ -18,7 +19,7 @@ class Posts {
      * 200 - OK
      * 201 - Created (sent upon successful POST)
      * 405 - Method not allowed (is sent if user uses wrong HTTP verb for a route)
-     * 503 - Forbidden
+     * 403 - Forbidden
      */
 
 
@@ -46,7 +47,7 @@ class Posts {
             // Prevent stored XSS and CSRF
             $userinput = new UserInput( $params );
 
-            if( $userinput->safe() === true ){
+            if( $userinput->safe() === true && User::Authorised() === true ){
                 $params = $userinput->data();
                 $post = new Post( $id );
                 $post->Update( $params['title'], $params['category'], $params['content'], $params['basename'] );
@@ -54,7 +55,7 @@ class Posts {
                 exit;
             }
             else{
-                http_response_code(503);
+                http_response_code(403);
                 echo 'Please don\'t hack me :)';
                 die;
             }
@@ -88,7 +89,7 @@ class Posts {
             // Prevent stored XSS and CSRF
             $userinput = new UserInput( $_POST );
 
-            if( $userinput->safe() === true ){
+            if( $userinput->safe() === true && User::Authorised() === true ){
 
                 $userdata = $userinput->data();
 
@@ -104,7 +105,7 @@ class Posts {
 
             }
             else{
-                http_response_code(503);
+                http_response_code(403);
                 echo 'Please don\'t hack me :)';
                 die;
             }

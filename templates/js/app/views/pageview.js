@@ -47,6 +47,8 @@ var PageView = Backbone.View.extend( {
                 $("main").append( template );
             } );
 
+            template = _.template( footer.get("template") );
+            $("body").append( template );
 
         } );
 

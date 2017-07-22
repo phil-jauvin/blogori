@@ -15,9 +15,9 @@ function getPage( page ){
             collection: page1
         } );
 
-    });
+        Backbone.history.firstLoad = false;
 
-    Backbone.history.firstLoad = false;
+    });
 
 }
 

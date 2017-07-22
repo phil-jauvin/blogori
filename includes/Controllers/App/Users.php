@@ -18,7 +18,7 @@ class Users {
     * 200 - OK
     * 201 - Created (sent upon successful POST)
     * 405 - Method not allowed (is sent if user uses wrong HTTP verb for a route)
-    * 503 - Forbidden
+    * 403 - Forbidden
     */
 
 
@@ -69,7 +69,7 @@ class Users {
             }
 
             else{
-                http_response_code(503);
+                http_response_code(403);
                 echo 'Please don\'t hack me :)';
                 die;
             }

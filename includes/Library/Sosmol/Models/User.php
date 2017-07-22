@@ -41,6 +41,16 @@ class User extends \PHPAuth\Auth {
     }
 
     /**
+     * Checks if the user can perform admin task
+     */
+
+    public static function Authorised(){
+        $user = new User();
+        $user->FetchActiveUser();
+        return $user->isLogged();
+    }
+
+    /**
      * Fetch information about a logged in user
      * Will populate class traits if user information is found
      */
