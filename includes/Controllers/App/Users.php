@@ -50,12 +50,12 @@ class Users {
         if( $_SERVER['REQUEST_METHOD'] === 'POST' ){
 
             $userinput = new UserInput( $_POST );
+            $user = new User();
 
-            if( $userinput->safe() === true ){
+            if( $userinput->safe() === true && $user->isLogged() === true ){
 
                 $userdata = $userinput->data();
 
-                $user = new User();
                 $email = $userdata['username'];
                 $password = $userdata['password'];
                 $res = $user->login( $email, $password, 1 );
